@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DUEL — Das Showgame</title>
+<title>DUELL — Das Showgame</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
@@ -126,7 +126,7 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--text);font-fam
 <div id="screen-menu" class="screen active">
   <div class="menu-bg"><div class="scanlines"></div></div>
   <header class="menu-header">
-    <span class="logo-text">DUEL</span>
+    <span class="logo-text">DUELL</span>
     <span class="logo-sub">Das Showgame</span>
   </header>
   <nav class="menu-nav">
@@ -792,16 +792,17 @@ function closeSpeichernModal(){document.getElementById('modal-speichern').style.
 function doSpeichern(){
   var name=(document.getElementById('speichern-name').value||'').trim();
   if(!name){document.getElementById('speichern-feedback').textContent='Bitte Namen eingeben.';return;}
-  // Speichert die aktuelle Runde — beim Laden wird genau diese Runde nochmal gespielt
+  // Speichert die NÄCHSTE Runde — Punkte der aktuellen Runde sind bereits vergeben
+  var nextRound=GS.round+1;
   var sv={name:name,date:new Date().toLocaleDateString('de-DE'),
     p1Name:GS.p1Name,p2Name:GS.p2Name,
     p1Score:GS.p1Score,p2Score:GS.p2Score,
-    round:GS.round,order:GS.order,savedAt:Date.now()};
+    round:nextRound,order:GS.order,savedAt:Date.now()};
   var saves=getSaves();
   var idx=saves.findIndex(function(s){return s.name===name;});
   if(idx>=0) saves[idx]=sv; else saves.push(sv);
   setSaves(saves);
-  document.getElementById('speichern-feedback').textContent='✓ Gespeichert! Lädt ab Runde '+GS.round;
+  document.getElementById('speichern-feedback').textContent='✓ Gespeichert! Startet bei Runde '+nextRound;
   setTimeout(closeSpeichernModal,1400);
 }
 
@@ -822,7 +823,7 @@ function openLaden(){
           '<div style="font-family:var(--font-cond);font-size:12px;color:var(--text-dim);margin-top:2px;">'+esc(sv.p1Name)+' vs '+esc(sv.p2Name)+' · '+esc(sv.date)+'</div>'+
           '<div style="font-family:var(--font-cond);font-size:13px;margin-top:4px;">'+
             '<span style="color:var(--p1);">'+sv.p1Score+'</span> : <span style="color:var(--p2);">'+sv.p2Score+'</span>'+
-            ' &nbsp;·&nbsp; ab Runde <strong style="color:var(--accent);">'+sv.round+'</strong>/'+SETTINGS.totalRounds+
+            ' &nbsp;·&nbsp; weiter ab Runde <strong style="color:var(--accent);">'+sv.round+'</strong>/'+SETTINGS.totalRounds+
           '</div>'+
         '</div>'+
         '<div style="display:flex;flex-direction:column;gap:6px;">'+
@@ -851,7 +852,8 @@ function ladenAuswaehlen(ts){
     '<span style="color:var(--accent);">'+esc(sv.name)+'</span><br>'+
     esc(sv.p1Name)+' vs '+esc(sv.p2Name)+'<br>'+
     'Stand: <span style="color:var(--p1);">'+sv.p1Score+'</span> : <span style="color:var(--p2);">'+sv.p2Score+'</span><br>'+
-    'Startet bei Runde <strong style="color:var(--accent);">'+sv.round+'</strong> von '+SETTINGS.totalRounds;
+    'Weiter bei Runde <strong style="color:var(--accent);">'+sv.round+'</strong> von '+SETTINGS.totalRounds+
+    ' <span style="color:var(--accent3);font-size:11px;">(Runden 1–'+(sv.round-1)+' bereits gespielt)</span>';
   document.getElementById('laden-host-name').value=sv.p1Name;
   resetForms();
   showScreen('screen-laden-lobby');
