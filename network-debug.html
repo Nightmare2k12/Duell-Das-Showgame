@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>DUELL — Network Debug</title>
+<script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+<style>
+  body { background: #0a0a0f; color: #f0ede8; font-family: monospace; padding: 20px; }
+  button { background: #f0c030; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; margin: 5px; }
+  #log { background: #14141f; padding: 16px; margin-top: 20px; min-height: 200px; white-space: pre-wrap; font-size: 13px; line-height: 1.6; }
+  #code-display { font-size: 48px; color: #f0c030; letter-spacing: .3em; margin: 10px 0; }
+  input { background: #14141f; border: 1px solid rgba(255,255,255,.2); color: #f0ede8; padding: 10px; font-size: 20px; letter-spacing: .2em; width: 160px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<h2>DUELL — PeerJS Verbindungstest</h2>
+
+<div id="host-section">
+  <button onclick="startHost()">🟢 HOST starten</button>
+  <div id="code-display"></div>
+</div>
+
+<hr style="border-color:#333;margin:20px 0">
+
+<div id="guest-section">
+  <input id="guest-code" placeholder="W-XXXX" maxlength="6">
+  <button onclick="startGuest()">🔵 GUEST verbinden</button>
+</div>
+
+<div id="log">Warte auf Aktion…\n</div>
+
+<script src="network.js"></script>
+<script>
+function log(msg) {
+  var el = document.getElementById('log');
+  var ts = new Date().toLocaleTimeString('de-DE', {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  el.textContent += '[' + ts + '] ' + msg + '\n';
+  el.scrollTop = el.scrollHeight;
+}
+
+function startHost() {
+  log('Erstelle Lobby (Online-Modus)…');
+  Network.setMode('online');
+
+  Network.onConnected(function(m) {
+    log('✅ Guest verbunden! Name: ' + m.name);
+    log('Sende __ack zurück…');
+    Network.send('__ack', { host: 'DebugHost', p2: m.name });
+  });
+
+  var code = Network.createLobby('DebugHost');
+  document.getElementById('code-display').textContent = code;
+  log('Code generiert: ' + code);
+  log('Warte auf PeerJS-Verbindung vom Guest…');
+}
+
+function startGuest() {
+  var code = document.getElementById('guest-code').value.trim().toUpperCase();
+  if (!code) { log('❌ Bitte Code eingeben!'); return; }
+
+  log('Verbinde als Guest mit Code: ' + code);
+
+  Network.on('__ack', function(m) {
+    Network.off('__ack');
+    log('✅ __ack empfangen! Host: ' + m.host);
+    log('🎉 Verbindung erfolgreich!');
+  });
+
+  Network.joinLobby(code, 'DebugGuest');
+  log('joinLobby() aufgerufen, warte auf PeerJS open…');
+}
+</script>
+</body>
+</html>
