@@ -97,6 +97,8 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--text);font-fam
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <!-- Spielverwaltung: neue Spiele nur in game-pool.js unter GAME_IDS eintragen -->
+<script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+<script src="network.js"></script>
 <script src="game-pool.js"></script>
 <!-- Spiel-Module -->
 <script src="games/zahlenreihen/game.js"></script>
@@ -162,7 +164,7 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--text);font-fam
     <button class="back-btn" onclick="showScreen('screen-menu')">← Zurück</button>
     <h2 class="screen-title">Beitreten</h2>
     <div class="form-group"><label>Dein Name</label><input id="join-name" type="text" placeholder="Spieler 2" maxlength="16" class="input-field"></div>
-    <div class="form-group"><label>Lobby-Code</label><input id="join-code" type="text" placeholder="XXXX" maxlength="4" class="input-field code-input" oninput="this.value=this.value.toUpperCase()"></div>
+    <div class="form-group"><label>Lobby-Code</label><input id="join-code" type="text" placeholder="XXXX oder W-XXXX" maxlength="6" class="input-field code-input" oninput="this.value=this.value.toUpperCase()"></div>
     <div class="lobby-status" id="join-status"></div>
     <button class="menu-btn primary" onclick="joinLobby()">Beitreten</button>
   </div>
@@ -343,64 +345,8 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--text);font-fam
   </div>
 </div>
 
+<script src="network.js"></script>
 <script>
-// ═══════════════════════════════════════════════════════════
-// NETWORK — BroadcastChannel (2 Tabs gleicher Browser/PC)
-// ═══════════════════════════════════════════════════════════
-const Network = (function(){
-  var role='host', ch=null, handlers={}, connCb=null;
-
-  function genCode(){
-    var c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',s='';
-    for(var i=0;i<4;i++) s+=c[Math.floor(Math.random()*c.length)];
-    return s;
-  }
-
-  function open(code){
-    if(ch) ch.close();
-    ch=new BroadcastChannel('duel-'+code);
-    ch.onmessage=function(e){
-      var m=e.data;
-      if(!m||!m.type) return;
-      if(m._from===role) return;          // eigene Nachrichten ignorieren
-      if(m.type==='__conn'){if(connCb)connCb(m);return;}
-      if(handlers[m.type]) handlers[m.type](m);
-    };
-  }
-
-  function send(type,payload){
-    if(!ch){console.warn('Network: kein Channel');return;}
-    var m=Object.assign({type:type,_from:role},payload||{});
-    ch.postMessage(m);
-  }
-
-  return {
-    createLobby:function(name){
-      role='host';
-      var code=genCode();
-      open(code);
-      // Auf Guest warten — separater Listener weil connCb erst später gesetzt wird
-      ch.addEventListener('message',function(e){
-        if(e.data&&e.data.type==='__conn'&&e.data._from==='guest'){
-          if(connCb) connCb(e.data);
-        }
-      });
-      return code;
-    },
-    joinLobby:function(code,name){
-      role='guest';
-      open(code);
-      setTimeout(function(){send('__conn',{name:name});},200);
-    },
-    send:send,
-    on:function(t,h){handlers[t]=h;},
-    off:function(t){delete handlers[t];},
-    onConnected:function(cb){connCb=cb;},
-    disconnect:function(){if(ch){ch.close();ch=null;}handlers={};connCb=null;},
-    getRole:function(){return role;},
-    isHost:function(){return role==='host';}
-  };
-})();
 
 // ═══════════════════════════════════════════════════════════
 // EINSTELLUNGEN — Sound & Spielmodus
@@ -463,6 +409,7 @@ function quitGame(){if(confirm('Wirklich beenden?')){try{window.close();}catch(e
 function createLobby(){
   var name=(document.getElementById('host-name').value||'').trim()||'Spieler 1';
   GS.role='host'; GS.p1Name=name; GS.singleGame=false; GS.pendingSave=null;
+  Network.setMode('online');
   var code=Network.createLobby(name);
   document.getElementById('lobby-code-value').textContent=code;
   document.getElementById('lobby-code-display').style.display='block';
@@ -480,7 +427,7 @@ function createLobby(){
 function joinLobby(){
   var name=(document.getElementById('join-name').value||'').trim()||'Spieler 2';
   var code=(document.getElementById('join-code').value||'').trim().toUpperCase();
-  if(code.length!==4){document.getElementById('join-status').textContent='4-stelligen Code eingeben.';return;}
+  if(code.length!==4&&!(code.startsWith('W-')&&code.length===6)){document.getElementById('join-status').textContent='Code eingeben (XXXX oder W-XXXX).';return;}
   GS.role='guest'; GS.p2Name=name;
   document.getElementById('join-status').textContent='Verbinde…';
   Network.joinLobby(code,name);
@@ -760,6 +707,7 @@ function openSpiele(){
 function createSpielLobby(){
   var name=(document.getElementById('spiel-host-name').value||'').trim()||'Spieler 1';
   GS.role='host'; GS.p1Name=name; GS.pendingSave=null;
+  Network.setMode('online');
   var code=Network.createLobby(name);
   document.getElementById('spiel-code-value').textContent=code;
   document.getElementById('spiel-code-display').style.display='block';
@@ -862,6 +810,7 @@ function ladenAuswaehlen(ts){
 function createLadenLobby(){
   var name=(document.getElementById('laden-host-name').value||'').trim()||(GS.pendingSave&&GS.pendingSave.p1Name)||'Spieler 1';
   GS.role='host'; GS.p1Name=name; GS.singleGame=false;
+  Network.setMode('online');
   var code=Network.createLobby(name);
   document.getElementById('laden-code-value').textContent=code;
   document.getElementById('laden-code-display').style.display='block';
