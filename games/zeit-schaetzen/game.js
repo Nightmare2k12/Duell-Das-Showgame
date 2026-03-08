@@ -50,6 +50,7 @@
     this.p2Wins    = 0;
     this.mini      = 1;
     this.timers    = [];
+    this.safetyTimer = null;
 
     this._buildUI();
     this._setupNet();
@@ -261,6 +262,12 @@
       this.p2Time = null;
       this.phase  = 'idle';
 
+      // Alten Safety-Timer aufräumen falls noch aktiv
+      if (this.safetyTimer) {
+        clearTimeout(this.safetyTimer);
+        this.safetyTimer = null;
+      }
+
       var t1 = document.getElementById('zs-t1');
       var t2 = document.getElementById('zs-t2');
       if (t1) t1.textContent = '—';
@@ -340,12 +347,13 @@
       this.timers.push(iv);
 
       // Sicherheits-Timeout
-      var safety = setTimeout(function() {
+      this.safetyTimer = setTimeout(function() {
+        self.safetyTimer = null;
         if (self.dead || self.phase !== 'running') return;
         if (self.p1Time === null) self._registerBuzz('p1', 120.0);
         if (self.p2Time === null) self._registerBuzz('p2', 120.0);
       }, 120000);
-      this.timers.push(safety);
+      this.timers.push(this.safetyTimer);
     },
 
     // ─── LOKALER BUZZ ───────────────────────────────────────
@@ -375,6 +383,11 @@
 
       if (this.p1Time !== null && this.p2Time !== null) {
         this.phase = 'done';
+        // Safety-Timer stoppen, da beide gebuzzert haben
+        if (this.safetyTimer) {
+          clearTimeout(this.safetyTimer);
+          this.safetyTimer = null;
+        }
         // Jetzt erst beide Zeiten aufdecken
         var t1el = document.getElementById('zs-t1');
         var t2el = document.getElementById('zs-t2');
