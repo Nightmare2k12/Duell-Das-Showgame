@@ -608,6 +608,11 @@
           document.getElementById('st-ov').style.display = 'none';
         }
       });
+      // Guest: Host hat auf "ZUM HAUPTMENÜ" geklickt → Spiel beenden
+      this.ctx.network.on('st_end_final', function() {
+        if (self.ctx.isHost) return;
+        if (!self.dead) self._finish();
+      });
     },
 
     // ── Deezer Widget (offizielles Embed, kein CORS, autoplay=true) ──
@@ -939,14 +944,25 @@
       ].join('');
       document.getElementById('st-ov-sc').innerHTML = 'Gespielt: ' + this.mini + ' Runden';
 
+      var ov = document.getElementById('st-ov');
+      ov.style.display = 'flex';
+
       var btn = document.getElementById('st-ov-btn');
-      btn.textContent = 'ZUM HAUPTMENÜ';
+      btn.textContent = 'WEITER';
       if (this.ctx.isHost) {
         btn.style.display = 'block';
         btn.onclick = function() {
           self.ctx.network.send('st_end_final', {});
           self._finish();
         };
+      } else {
+        // Guest: Button verstecken, automatisch beenden wenn st_end_final kommt
+        // (Handler bereits in _setupNet registriert)
+        // Fallback: falls Nachricht verloren geht, nach Timeout beenden
+        btn.style.display = 'none';
+        self.timers.push(setTimeout(function() {
+          if (!self.dead) self._finish();
+        }, 8000));
       }
     },
 
