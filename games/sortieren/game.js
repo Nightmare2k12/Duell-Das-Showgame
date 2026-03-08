@@ -104,6 +104,18 @@
       '.so-flash-red   { animation: so-flash-red   .7s ease-out; }',
       '.so-reveal-item { animation: so-reveal .35s ease-out both; }',
       '.so-slide-in    { animation: so-slide-in .4s ease-out both; }',
+      '@keyframes so-item-correct {',
+      '  0%   { box-shadow: 0 0 0 0 rgba(42,240,160,.6); background: rgba(42,240,160,.25); }',
+      '  50%  { box-shadow: 0 0 24px 6px rgba(42,240,160,.5); background: rgba(42,240,160,.35); }',
+      '  100% { box-shadow: 0 0 0 0 rgba(42,240,160,.1); background: rgba(42,240,160,.15); }',
+      '}',
+      '@keyframes so-item-wrong {',
+      '  0%   { box-shadow: 0 0 0 0 rgba(245,90,58,.6); background: rgba(245,90,58,.25); }',
+      '  50%  { box-shadow: 0 0 24px 6px rgba(245,90,58,.5); background: rgba(245,90,58,.35); }',
+      '  100% { box-shadow: 0 0 0 0 rgba(245,90,58,.1); background: rgba(245,90,58,.15); }',
+      '}',
+      '.so-item-correct { animation: so-item-correct .8s ease-out; border-color: #2af0a0 !important; color: #2af0a0 !important; }',
+      '.so-item-wrong   { animation: so-item-wrong .8s ease-out; border-color: #f55a3a !important; color: #f55a3a !important; }',
     ].join('\n');
     document.head.appendChild(s);
   })();
@@ -155,6 +167,8 @@
     this._roundStarter = 'p1';
     // Vollständige sortierte Lösung (alle Begriffe inkl. anchor), für Auflösung
     this._fullSolution = [];
+
+    this._usedCatIndices = [];
 
     this._buildUI();
     this._setupNet();
@@ -318,10 +332,28 @@
         self._queue       = msg.queue;
         self._currentTurn = msg.turn;
         self._selected    = null;
-        self._flashResult(true, function () {
-          self._renderGame();
-          self._resetTimer();
-        });
+        self._renderGame();
+        self._resetTimer();
+      });
+
+      this.ctx.network.on('so_preview_place', function (msg) {
+        if (self.ctx.isHost) return;
+        // Zeige dem Client den platzierten Begriff mit grün/rot-Feedback
+        self._sortedList = msg.sortedList;
+        self._queue      = msg.queue;
+        self._selected   = null;
+        self._renderGame();
+        // Karte hervorheben
+        var sEl = document.getElementById('so-sorted');
+        if (sEl) {
+          var cards = sEl.querySelectorAll('div[style*="clip-path"]');
+          for (var ci = 0; ci < cards.length; ci++) {
+            if (cards[ci].textContent.indexOf(msg.itemT) !== -1 && cards[ci].textContent.indexOf('\uD83D\uDCCD') === -1) {
+              cards[ci].className = msg.correct ? 'so-item-correct' : 'so-item-wrong';
+              break;
+            }
+          }
+        }
       });
 
       this.ctx.network.on('so_client_move', function (msg) {
@@ -384,15 +416,35 @@
       document.getElementById('so-turn-info').style.display  = 'none';
       document.getElementById('so-timer').style.display      = 'none';
       document.getElementById('so-flash').style.display      = 'none';
+      document.getElementById('so-resolve').style.display    = 'none';
+      document.getElementById('so-cat-label').textContent    = '';
+      // Queue und sortierte Liste sofort leeren, damit nichts durchscheint
+      var qEl = document.getElementById('so-queue');
+      if (qEl) qEl.innerHTML = '';
+      var sEl = document.getElementById('so-sorted');
+      if (sEl) sEl.innerHTML = '';
       this._setStatus('Bereit?', '#c0c0d8', '18px');
 
       if (this.ctx.isHost) {
         var btn = document.getElementById('so-start-btn');
         if (btn) btn.style.display = 'block';
+        // Deck neu mischen, aber bereits gespielte Kategorien ausschließen
         if (this._deck.length === 0) {
-          this._deck = shuffle(CATEGORIES.map(function (_, i) { return i; }));
+          var usedSet = this._usedCatIndices;
+          var available = [];
+          for (var ci = 0; ci < CATEGORIES.length; ci++) {
+            if (usedSet.indexOf(ci) === -1) available.push(ci);
+          }
+          // Falls alle Kategorien verbraucht sind, Reset
+          if (available.length === 0) {
+            this._usedCatIndices = [];
+            available = CATEGORIES.map(function (_, i) { return i; });
+          }
+          this._deck = shuffle(available);
         }
-        var cat = CATEGORIES[this._deck.shift()];
+        var catIdx = this._deck.shift();
+        this._usedCatIndices.push(catIdx);
+        var cat = CATEGORIES[catIdx];
         this._roundStarter  = (this.mini % 2 === 1) ? 'p1' : 'p2';
         this._currentTurn   = this._roundStarter;
         this.currentCat     = { label: cat.label, dir: cat.dir, anchor: cat.anchor };
@@ -759,6 +811,40 @@
         return i === 0 || newSorted[i - 1].v <= x.v;
       });
 
+      // ── Sofort den Begriff an seiner platzierten Position zeigen ──
+      // Temporär die Liste aktualisieren, damit man sieht wo der Begriff gelandet ist
+      var prevSorted = this._sortedList;
+      var prevQueue  = this._queue;
+      this._sortedList = newSorted;
+      this._queue      = newQueue;
+      this._selected   = null;
+      this._renderGame();
+
+      // Die gerade platzierte Karte visuell hervorheben
+      var sEl = document.getElementById('so-sorted');
+      if (sEl) {
+        // Karten sind an ungeraden Positionen (gerade = Pfeile), Index der Karte = pos
+        var cards = sEl.querySelectorAll('div[style*="clip-path"]');
+        // Die richtige Karte finden – sie hat den Text des platzierten Items
+        for (var ci = 0; ci < cards.length; ci++) {
+          if (cards[ci].textContent.indexOf(item.t) !== -1 && cards[ci].textContent.indexOf('\uD83D\uDCCD') === -1) {
+            cards[ci].className = correct ? 'so-item-correct' : 'so-item-wrong';
+            break;
+          }
+        }
+      }
+
+      // Sync den visuellen State auch zum anderen Spieler
+      if (correct) {
+        this.ctx.network.send('so_preview_place', { sortedList: newSorted, queue: newQueue, itemT: item.t, correct: true });
+      } else {
+        this.ctx.network.send('so_preview_place', { sortedList: newSorted, queue: newQueue, itemT: item.t, correct: false });
+      }
+
+      // Phase blockieren, damit keine weiteren Züge möglich sind während der Animation
+      this.phase = 'animating';
+      var self = this;
+
       if (!correct) {
         var loser   = this._currentTurn;
         var winnerP = (loser === 'p1') ? 'p2' : 'p1';
@@ -766,20 +852,20 @@
         this._clearTimers();
         var sol = this._fullSolution;
         var p1w = this.p1Wins, p2w = this.p2Wins;
-        var self = this;
-        this.ctx.network.send('so_wrong', { who: loser, p1Wins: p1w, p2Wins: p2w, solution: sol });
-        this._flashResult(false, function () {
-          self._showResolve(sol, function () {
-            self._showResult('wrong', loser, p1w, p2w);
+        // Kurz warten damit die rote Hervorhebung sichtbar ist, dann Flash+Resolve
+        setTimeout(function () {
+          // Zurücksetzen für den Flash
+          self.ctx.network.send('so_wrong', { who: loser, p1Wins: p1w, p2Wins: p2w, solution: sol });
+          self._flashResult(false, function () {
+            self._showResolve(sol, function () {
+              self._showResult('wrong', loser, p1w, p2w);
+            });
           });
-        });
+        }, 1000);
         return;
       }
 
-      // Richtig
-      this._sortedList  = newSorted;
-      this._queue       = newQueue;
-      this._selected    = null;
+      // Richtig – kurz grün zeigen lassen, dann weiter
       this._currentTurn = (this._currentTurn === 'p1') ? 'p2' : 'p1';
 
       if (this._queue.length === 0) {
@@ -787,22 +873,24 @@
         if (roundWinner === 'p1') this.p1Wins++; else this.p2Wins++;
         this._clearTimers();
         var p1w2 = this.p1Wins, p2w2 = this.p2Wins, rw = roundWinner;
-        var self2 = this;
-        this.ctx.network.send('so_roundwin', { who: roundWinner, p1Wins: this.p1Wins, p2Wins: this.p2Wins });
-        this._flashResult(true, function () {
-          self2._showResult('win', rw, p1w2, p2w2);
-        });
+        setTimeout(function () {
+          self.ctx.network.send('so_roundwin', { who: rw, p1Wins: self.p1Wins, p2Wins: self.p2Wins });
+          self._flashResult(true, function () {
+            self._showResult('win', rw, p1w2, p2w2);
+          });
+        }, 800);
       } else {
-        this.ctx.network.send('so_update', {
-          sortedList: this._sortedList,
-          queue:      this._queue,
-          turn:       this._currentTurn,
-        });
-        var self3 = this;
-        this._flashResult(true, function () {
-          self3._renderGame();
-          self3._resetTimer();
-        });
+        var turn = this._currentTurn;
+        setTimeout(function () {
+          self.phase = 'answering';
+          self.ctx.network.send('so_update', {
+            sortedList: self._sortedList,
+            queue:      self._queue,
+            turn:       turn,
+          });
+          self._renderGame();
+          self._resetTimer();
+        }, 800);
       }
     },
 
@@ -922,7 +1010,7 @@
       this.dead = true;
       this.timers.forEach(clearTimeout);
       this._clearTimers();
-      ['so_start_countdown','so_sync_round','so_update','so_client_move',
+      ['so_start_countdown','so_sync_round','so_update','so_preview_place','so_client_move',
        'so_wrong','so_timeout_ev','so_roundwin','so_next','so_show_score','so_ov_show']
         .forEach(function (ev) { this.ctx.network.off(ev); }, this);
     }
