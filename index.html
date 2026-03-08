@@ -267,12 +267,15 @@ html,body{width:100%;height:100%;background:var(--bg);color:var(--text);font-fam
   <div class="menu-bg"><div class="scanlines"></div></div>
   <div class="screen-inner centered">
     <div class="fireworks" id="fireworks"></div>
-    <div class="trophy">🏆</div>
-    <h1 class="gameover-title">SIEGER!</h1>
+    <div class="trophy" id="gameover-trophy">🏆</div>
+    <h1 class="gameover-title" id="gameover-title">SIEGER!</h1>
     <h2 class="gameover-winner" id="gameover-winner">—</h2>
     <div class="gameover-scores" id="gameover-scores"></div>
-    <button class="menu-btn primary" onclick="returnToMenu()">Hauptmenü</button>
-    <button class="menu-btn" onclick="playAgain()">Nochmal</button>
+    <div id="gameover-subtitle" style="font-family:var(--font-cond);font-size:14px;letter-spacing:.2em;color:var(--text-dim);text-transform:uppercase;margin-top:-4px;"></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+      <button class="menu-btn primary" onclick="returnToMenu()">Hauptmenü</button>
+      <button class="menu-btn" onclick="playAgain()">Nochmal spielen</button>
+    </div>
   </div>
 </div>
 
@@ -618,11 +621,45 @@ function nextRound(){
 }
 
 function showGameOver(){
-  var w=GS.p1Score>GS.p2Score?GS.p1Name:GS.p2Score>GS.p1Score?GS.p2Name:'Unentschieden';
-  document.getElementById('gameover-winner').textContent=w;
+  var isDraw = GS.p1Score === GS.p2Score;
+  var w = isDraw ? 'Unentschieden' : (GS.p1Score > GS.p2Score ? GS.p1Name : GS.p2Name);
+  var loser = GS.p1Score > GS.p2Score ? GS.p2Name : GS.p1Name;
+  var diff = Math.abs(GS.p1Score - GS.p2Score);
+
+  // Titel + Trophy + Winner dynamisch
+  var titleEl = document.getElementById('gameover-title');
+  var trophyEl = document.getElementById('gameover-trophy');
+  var winnerEl = document.getElementById('gameover-winner');
+  var subEl = document.getElementById('gameover-subtitle');
+
+  if (isDraw) {
+    trophyEl.textContent = '🤝';
+    titleEl.textContent = 'UNENTSCHIEDEN!';
+    titleEl.style.color = 'var(--accent)';
+    winnerEl.textContent = 'Beide gleichauf!';
+    winnerEl.style.color = 'var(--text)';
+    subEl.textContent = GS.p1Name + ' und ' + GS.p2Name + ' trennen sich ' + GS.p1Score + ':' + GS.p2Score;
+  } else {
+    trophyEl.textContent = '🏆';
+    if (diff >= 20) {
+      titleEl.textContent = 'DOMINANZ!';
+    } else if (diff >= 10) {
+      titleEl.textContent = 'KLARER SIEG!';
+    } else if (diff <= 3) {
+      titleEl.textContent = 'KNAPPER SIEG!';
+    } else {
+      titleEl.textContent = 'SIEGER!';
+    }
+    titleEl.style.color = 'var(--accent)';
+    winnerEl.textContent = w;
+    winnerEl.style.color = GS.p1Score > GS.p2Score ? 'var(--p1)' : 'var(--p2)';
+    subEl.textContent = w + ' gewinnt mit ' + diff + ' ' + (diff === 1 ? 'Punkt' : 'Punkten') + ' Vorsprung!';
+  }
+
   document.getElementById('gameover-scores').innerHTML=
-    '<div class="gameover-score-item"><span class="gameover-score-name">'+esc(GS.p1Name)+'</span><span class="gameover-score-val">'+GS.p1Score+'</span></div>'+
-    '<div class="gameover-score-item"><span class="gameover-score-name">'+esc(GS.p2Name)+'</span><span class="gameover-score-val">'+GS.p2Score+'</span></div>';
+    '<div class="gameover-score-item"><span class="gameover-score-name">'+esc(GS.p1Name)+'</span><span class="gameover-score-val" style="color:var(--p1);">'+GS.p1Score+'</span></div>'+
+    '<div style="font-family:var(--font-display);font-size:40px;color:var(--text-dim);display:flex;align-items:center;">:</div>'+
+    '<div class="gameover-score-item"><span class="gameover-score-name">'+esc(GS.p2Name)+'</span><span class="gameover-score-val" style="color:var(--p2);">'+GS.p2Score+'</span></div>';
   showScreen('screen-gameover');
   fireworks();
 }
@@ -654,18 +691,26 @@ function resetForms(){
 
 function fireworks(){
   var c=document.getElementById('fireworks');c.innerHTML='';
-  var cols=['#f0c030','#e0430a','#2af0a0','#3ab4f5','#f55a3a'];
-  for(var i=0;i<80;i++){
-    var s=document.createElement('div');s.className='spark';
-    s.style.left=(20+Math.random()*60)+'%';s.style.top=(20+Math.random()*60)+'%';
-    s.style.background=cols[Math.floor(Math.random()*cols.length)];
-    var a=Math.random()*Math.PI*2,d=80+Math.random()*120;
-    s.style.setProperty('--dx',Math.cos(a)*d+'px');
-    s.style.setProperty('--dy',Math.sin(a)*d+'px');
-    s.style.setProperty('--dur',(0.6+Math.random()*.8)+'s');
-    s.style.animationDelay=(Math.random()*.4)+'s';
-    c.appendChild(s);
+  var cols=['#f0c030','#e0430a','#2af0a0','#3ab4f5','#f55a3a','#ff69b4','#ffd700'];
+  function burst(count, delay){
+    setTimeout(function(){
+      for(var i=0;i<count;i++){
+        var s=document.createElement('div');s.className='spark';
+        s.style.left=(10+Math.random()*80)+'%';s.style.top=(10+Math.random()*80)+'%';
+        s.style.background=cols[Math.floor(Math.random()*cols.length)];
+        var a=Math.random()*Math.PI*2,d=60+Math.random()*160;
+        s.style.setProperty('--dx',Math.cos(a)*d+'px');
+        s.style.setProperty('--dy',Math.sin(a)*d+'px');
+        s.style.setProperty('--dur',(0.5+Math.random()*1.0)+'s');
+        s.style.animationDelay=(Math.random()*.5)+'s';
+        c.appendChild(s);
+      }
+    },delay);
   }
+  burst(80,0);
+  burst(60,800);
+  burst(70,1800);
+  burst(50,3000);
 }
 
 function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
