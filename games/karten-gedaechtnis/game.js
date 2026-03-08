@@ -739,15 +739,26 @@
       ov.style.display = 'flex';
       beep(880, 0.5, 'sine', 0.22);
 
+      var endResult = { winner: winner || 'draw', details: self.ctx.p1Name + ': ' + self.p1Score + ' Paare | ' + self.ctx.p2Name + ': ' + self.p2Score + ' Paare' };
+
       var btn = document.getElementById('km-end-btn');
       if (this.ctx.isHost) {
         btn.style.display = 'block';
+        btn.textContent = 'WEITER';
         btn.onclick = function() {
           self.dead = true;
-          self.onEnd({ winner: winner || 'p1', details: self.p1Score + ':' + self.p2Score });
+          self.onEnd(endResult);
         };
       } else {
+        // Guest: nach kurzer Anzeige automatisch onEnd aufrufen,
+        // damit der Hauptcontroller den Ergebnis-Screen zeigt
         btn.style.display = 'none';
+        self.timers.push(setTimeout(function() {
+          if (!self.dead) {
+            self.dead = true;
+            self.onEnd(endResult);
+          }
+        }, 2500));
       }
     },
 
