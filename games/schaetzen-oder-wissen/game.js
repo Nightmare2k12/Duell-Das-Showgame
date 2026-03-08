@@ -498,12 +498,12 @@
   // ═══════════════════════════════════════════════════════════
   // HARD MODE: PERSONEN & ZEITPUNKTE (MIT MONATS-DEZIMAL)
   // ═══════════════════════════════════════════════════════════
-  { itemA: 'Tod: Albert Einstein (Apr 1955)', itemB: 'Tod: James Dean (Sep 1955)', valueA: 1955.33, valueB: 1955.75, unit: 'Jahrzeitpunkt' },
-  { itemA: 'Tod: Michael Jackson (Jun 2009)', itemB: 'Tod: Patrick Swayze (Sep 2009)', valueA: 2009.50, valueB: 2009.75, unit: 'Jahrzeitpunkt' },
-  { itemA: 'Tod: Steve Jobs (Okt 2011)', itemB: 'Tod: Amy Winehouse (Jul 2011)', valueA: 2011.83, valueB: 2011.58, unit: 'Jahrzeitpunkt' },
-  { itemA: 'Tod: Queen Elizabeth II (Sep 2022)', itemB: 'Tod: Mikhail Gorbachev (Aug 2022)', valueA: 2022.75, valueB: 2022.66, unit: 'Jahrzeitpunkt' },
-  { itemA: 'Tod: John Lennon (Dez 1980)', itemB: 'Tod: Alfred Hitchcock (Apr 1980)', valueA: 1980.99, valueB: 1980.33, unit: 'Jahrzeitpunkt' },
-  { itemA: 'Geburt: Lionel Messi (Jun 1987)', itemB: 'Geburt: Novak Djokovic (Mai 1987)', valueA: 1987.50, valueB: 1987.42, unit: 'Jahrzeitpunkt' },
+  { itemA: 'Tod: Albert Einstein', itemB: 'Tod: James Dean', valueA: 1955.33, valueB: 1955.75, unit: 'Späterer Todeszeitpunkt' },
+  { itemA: 'Tod: Michael Jackson', itemB: 'Tod: Patrick Swayze', valueA: 2009.50, valueB: 2009.75, unit: 'Späterer Todeszeitpunkt' },
+  { itemA: 'Tod: Steve Jobs', itemB: 'Tod: Amy Winehouse', valueA: 2011.83, valueB: 2011.58, unit: 'Späterer Todeszeitpunkt' },
+  { itemA: 'Tod: Queen Elizabeth II', itemB: 'Tod: Mikhail Gorbachev', valueA: 2022.75, valueB: 2022.66, unit: 'Späterer Todeszeitpunkt' },
+  { itemA: 'Tod: John Lennon', itemB: 'Tod: Alfred Hitchcock', valueA: 1980.99, valueB: 1980.33, unit: 'Späterer Todeszeitpunkt' },
+  { itemA: 'Geburt: Lionel Messi', itemB: 'Geburt: Novak Djokovic', valueA: 1987.50, valueB: 1987.42, unit: 'Späterer Geburtszeitpunkt' },
 
   // ═══════════════════════════════════════════════════════════
   // HARD MODE: GEOGRAFIE & NATUR (KNAPPES DUELL)
@@ -575,17 +575,6 @@
   { itemA: 'Einwohner Prag', itemB: 'Einwohner Sofia', valueA: 1.3, valueB: 1.2, unit: 'Mio. Einwohner' },
   { itemA: 'Einwohner Peking', itemB: 'Einwohner Shanghai', valueA: 21.5, valueB: 24.8, unit: 'Mio. Einwohner' },
   { itemA: 'Einwohner Rom', itemB: 'Einwohner Paris (Stadtkern)', valueA: 2.8, valueB: 2.1, unit: 'Mio. Einwohner' },
-
-  // ═══════════════════════════════════════════════════════════
-  // HARD MODE: PERSONEN & ZEITPUNKTE (MIT MONATS-DEZIMAL)
-  // ═══════════════════════════════════════════════════════════
-  { itemA: 'Tod: Albert Einstein (Apr 1955)', itemB: 'Tod: James Dean (Sep 1955)', valueA: 1955.33, valueB: 1955.75, unit: 'Jahrzeitpunkt' },
-  { itemA: 'Tod: Michael Jackson (Jun 2009)', itemB: 'Tod: Patrick Swayze (Sep 2009)', valueA: 2009.50, valueB: 2009.75, unit: 'Jahrzeitpunkt' },
-  { itemA: 'Tod: Steve Jobs (Okt 2011)', itemB: 'Tod: Amy Winehouse (Jul 2011)', valueA: 2011.83, valueB: 2011.58, unit: 'Jahrzeitpunkt' },
-  { itemA: 'Tod: Queen Elizabeth II (Sep 2022)', itemB: 'Tod: Mikhail Gorbachev (Aug 2022)', valueA: 2022.75, valueB: 2022.66, unit: 'Jahrzeitpunkt' },
-  { itemA: 'Tod: John Lennon (Dez 1980)', itemB: 'Tod: Alfred Hitchcock (Apr 1980)', valueA: 1980.99, valueB: 1980.33, unit: 'Jahrzeitpunkt' },
-  { itemA: 'Geburt: Lionel Messi (Jun 1987)', itemB: 'Geburt: Novak Djokovic (Mai 1987)', valueA: 1987.50, valueB: 1987.42, unit: 'Jahrzeitpunkt' },
-
   // ═══════════════════════════════════════════════════════════
   // HARD MODE: GEOGRAFIE & NATUR (KNAPPES DUELL)
   // ═══════════════════════════════════════════════════════════
