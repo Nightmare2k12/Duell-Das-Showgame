@@ -74,6 +74,1199 @@
         { t: 'Smartphone',   v: 2007 },
       ]
     },
+{
+  label: 'Disney-Filme (Erscheinungsjahr)',
+  dir: ['Früher erschienen', 'Später erschienen'],
+  anchor: { t: 'Der König der Löwen', v: 1994 },
+  items: [
+    { t: 'Schneewittchen', v: 1937 },
+    { t: 'Bambi', v: 1942 },
+    { t: 'Das Dschungelbuch', v: 1967 },
+    { t: 'Arielle', v: 1989 },
+    { t: 'Findet Nemo', v: 2003 },
+    { t: 'Frozen', v: 2013 },
+    { t: 'Encanto', v: 2021 }
+  ]
+},
+{
+  label: 'Länder nach Landfläche',
+  dir: ['Kleiner', 'Größer'],
+  anchor: { t: 'Deutschland', v: 357022 },
+  items: [
+    { t: 'Monaco', v: 2 },
+    { t: 'Island', v: 103000 },
+    { t: 'Frankreich', v: 643801 },
+    { t: 'Indien', v: 3287263 },
+    { t: 'USA', v: 9833517 },
+    { t: 'Kanada', v: 9984670 },
+    { t: 'Russland', v: 17098242 }
+  ]
+},
+{
+  label: 'Geschwindigkeit (km/h)',
+  dir: ['Langsamer', 'Schneller'],
+  anchor: { t: 'Gepard', v: 110 },
+  items: [
+    { t: 'Schnecke', v: 0.05 },
+    { t: 'Mensch (Sprint)', v: 44 },
+    { t: 'Wanderfalke (Sturzflug)', v: 320 },
+    { t: 'Formel 1 Auto', v: 370 },
+    { t: 'Maglev-Zug', v: 600 },
+    { t: 'Passagierflugzeug', v: 900 },
+    { t: 'Schallgeschwindigkeit', v: 1235 }
+  ]
+},
+{
+  label: 'Harry Potter Bücher (Erscheinungsjahr)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Der Feuerkelch', v: 2000 },
+  items: [
+    { t: 'Der Stein der Weisen', v: 1997 },
+    { t: 'Die Kammer des Schreckens', v: 1998 },
+    { t: 'Der Gefangene von Askaban', v: 1999 },
+    { t: 'Der Orden des Phönix', v: 2003 },
+    { t: 'Der Halbblutprinz', v: 2005 },
+    { t: 'Die Heiligtümer des Todes', v: 2007 }
+  ]
+},
+{
+  label: 'Lebensmittel (Kalorien pro 100g)',
+  dir: ['Weniger Kalorien', 'Mehr Kalorien'],
+  anchor: { t: 'Ei', v: 155 },
+  items: [
+    { t: 'Gurke', v: 15 },
+    { t: 'Apfel', v: 52 },
+    { t: 'Hähnchenbrust', v: 165 },
+    { t: 'Pasta (gekocht)', v: 130 },
+    { t: 'Käse (Gouda)', v: 350 },
+    { t: 'Vollmilchschokolade', v: 530 },
+    { t: 'Walnüsse', v: 650 }
+  ]
+},
+{
+  label: 'Bevölkerung (Staaten)',
+  dir: ['Weniger Einwohner', 'Mehr Einwohner'],
+  anchor: { t: 'Spanien', v: 47000000 },
+  items: [
+    { t: 'Vatikanstadt', v: 800 },
+    { t: 'Luxemburg', v: 640000 },
+    { t: 'Österreich', v: 9000000 },
+    { t: 'Ägypten', v: 109000000 },
+    { t: 'Brasilien', v: 214000000 },
+    { t: 'Indien', v: 1408000000 },
+    { t: 'China', v: 1412000000 }
+  ]
+},
+{
+  label: 'Historische Ereignisse',
+  dir: ['Früher passiert', 'Später passiert'],
+  anchor: { t: 'Französische Revolution', v: 1789 },
+  items: [
+    { t: 'Bau der Pyramiden', v: -2560 },
+    { t: 'Untergang Pompejis', v: 79 },
+    { t: 'Entdeckung Amerikas', v: 1492 },
+    { t: 'Mauerfall', v: 1989 },
+    { t: 'Erste Mondlandung', v: 1969 },
+    { t: 'Titanic Untergang', v: 1912 },
+    { t: 'Beginn Erster Weltkrieg', v: 1914 }
+  ]
+},
+{
+  label: 'Apple Produkte (Release)',
+  dir: ['Älter', 'Neuer'],
+  anchor: { t: 'iPhone (Original)', v: 2007 },
+  items: [
+    { t: 'Apple I', v: 1976 },
+    { t: 'Macintosh', v: 1984 },
+    { t: 'iPod', v: 2001 },
+    { t: 'MacBook Pro', v: 2006 },
+    { t: 'iPad', v: 2010 },
+    { t: 'Apple Watch', v: 2015 },
+    { t: 'Vision Pro', v: 2024 }
+  ]
+},
+{
+  label: 'Star Wars Filme (Episode Chronologie)',
+  dir: ['Früher in der Timeline', 'Später in der Timeline'],
+  anchor: { t: 'Eine neue Hoffnung', v: 4 },
+  items: [
+    { t: 'Die dunkle Bedrohung', v: 1 },
+    { t: 'Angriff der Klonkrieger', v: 2 },
+    { t: 'Die Rache der Sith', v: 3 },
+    { t: 'Das Imperium schlägt zurück', v: 5 },
+    { t: 'Die Rückkehr der Jedi-Ritter', v: 6 },
+    { t: 'Das Erwachen der Macht', v: 7 },
+    { t: 'Der Aufstieg Skywalkers', v: 9 }
+  ]
+},
+{
+  label: 'Elemente (Ordnungszahl)',
+  dir: ['Niedriger', 'Höher'],
+  anchor: { t: 'Kohlenstoff', v: 6 },
+  items: [
+    { t: 'Wasserstoff', v: 1 },
+    { t: 'Helium', v: 2 },
+    { t: 'Sauerstoff', v: 8 },
+    { t: 'Aluminium', v: 13 },
+    { t: 'Eisen', v: 26 },
+    { t: 'Gold', v: 79 },
+    { t: 'Uran', v: 92 }
+  ]
+},
+{
+  label: 'Durchschnittliche Lebensdauer (Tiere in Jahren)',
+  dir: ['Kürzer', 'Länger'],
+  anchor: { t: 'Hund', v: 12 },
+  items: [
+    { t: 'Eintagsfliege', v: 0.01 },
+    { t: 'Hamster', v: 2 },
+    { t: 'Kaninchen', v: 8 },
+    { t: 'Pferd', v: 25 },
+    { t: 'Elefant', v: 60 },
+    { t: 'Riesenschildkröte', v: 150 },
+    { t: 'Grönlandhai', v: 400 }
+  ]
+},
+{
+  label: 'Entfernung von Berlin (Luftlinie)',
+  dir: ['Näher', 'Weiter weg'],
+  anchor: { t: 'Paris', v: 878 },
+  items: [
+    { t: 'Potsdam', v: 27 },
+    { t: 'Prag', v: 280 },
+    { t: 'London', v: 930 },
+    { t: 'Rom', v: 1180 },
+    { t: 'Moskau', v: 1600 },
+    { t: 'New York', v: 6380 },
+    { t: 'Tokio', v: 8900 }
+  ]
+},
+{
+  label: 'Erfundenes Geld (Dagobert Duck Jahre)',
+  dir: ['Älter', 'Jünger'],
+  anchor: { t: 'LTB Erstausgabe', v: 1967 },
+  items: [
+    { t: 'Micky Maus Comic (USA)', v: 1930 },
+    { t: 'Dagobert Duck (Debüt)', v: 1947 },
+    { t: 'Donald Duck (Debüt)', v: 1934 },
+    { t: 'Goofy (Debüt)', v: 1932 },
+    { t: 'Tick, Trick und Track', v: 1937 },
+    { t: 'Daniel Düsentrieb', v: 1952 }
+  ]
+},
+{
+  label: 'Sonnensystem (Größe/Durchmesser)',
+  dir: ['Kleiner', 'Größer'],
+  anchor: { t: 'Erde', v: 12742 },
+  items: [
+    { t: 'Mond', v: 3474 },
+    { t: 'Pluto', v: 2376 },
+    { t: 'Mars', v: 6779 },
+    { t: 'Neptun', v: 49244 },
+    { t: 'Saturn', v: 116460 },
+    { t: 'Jupiter', v: 139820 },
+    { t: 'Sonne', v: 1392700 }
+  ]
+},
+{
+  label: 'Hunderassen (Schulterhöhe)',
+  dir: ['Kleiner', 'Größer'],
+  anchor: { t: 'Beagle', v: 35 },
+  items: [
+    { t: 'Chihuahua', v: 18 },
+    { t: 'Mops', v: 30 },
+    { t: 'Golden Retriever', v: 58 },
+    { t: 'Schäferhund', v: 62 },
+    { t: 'Deutsche Dogge', v: 85 },
+    { t: 'Irischer Wolfshund', v: 90 }
+  ]
+},
+{
+  label: 'Flüsse (Länge)',
+  dir: ['Kürzer', 'Länger'],
+  anchor: { t: 'Rhein', v: 1232 },
+  items: [
+    { t: 'Spree', v: 400 },
+    { t: 'Elbe', v: 1094 },
+    { t: 'Donau', v: 2850 },
+    { t: 'Wolga', v: 3530 },
+    { t: 'Mississippi', v: 3766 },
+    { t: 'Amazonas', v: 6400 },
+    { t: 'Nil', v: 6650 }
+  ]
+},
+{
+  label: 'Videospielkonsolen (Release)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'PlayStation 1', v: 1994 },
+  items: [
+    { t: 'Atari 2600', v: 1977 },
+    { t: 'NES', v: 1983 },
+    { t: 'Game Boy', v: 1989 },
+    { t: 'Nintendo 64', v: 1996 },
+    { t: 'PlayStation 2', v: 2000 },
+    { t: 'Wii', v: 2006 },
+    { t: 'Nintendo Switch', v: 2017 }
+  ]
+},
+{
+  label: 'Marvel Cinematic Universe (Filmreihenfolge)',
+  dir: ['Früher erschienen', 'Später erschienen'],
+  anchor: { t: 'The Avengers', v: 2012 },
+  items: [
+    { t: 'Iron Man', v: 2008 },
+    { t: 'Thor', v: 2011 },
+    { t: 'Guardians of the Galaxy', v: 2014 },
+    { t: 'Doctor Strange', v: 2016 },
+    { t: 'Black Panther', v: 2018 },
+    { t: 'Avengers: Endgame', v: 2019 },
+    { t: 'Spider-Man: No Way Home', v: 2021 }
+  ]
+},
+{
+  label: 'Metalle (Schmelzpunkt in °C)',
+  dir: ['Niedriger', 'Höher'],
+  anchor: { t: 'Silber', v: 961 },
+  items: [
+    { t: 'Quecksilber', v: -38 },
+    { t: 'Zinn', v: 231 },
+    { t: 'Blei', v: 327 },
+    { t: 'Aluminium', v: 660 },
+    { t: 'Gold', v: 1064 },
+    { t: 'Eisen', v: 1538 },
+    { t: 'Wolfram', v: 3422 }
+  ]
+},
+{
+  label: 'Social Media Plattformen (Gründung)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Facebook', v: 2004 },
+  items: [
+    { t: 'LinkedIn', v: 2002 },
+    { t: 'YouTube', v: 2005 },
+    { t: 'Twitter (X)', v: 2006 },
+    { t: 'WhatsApp', v: 2009 },
+    { t: 'Instagram', v: 2010 },
+    { t: 'Snapchat', v: 2011 },
+    { t: 'TikTok', v: 2016 }
+  ]
+},
+{
+  label: 'Berühmte Komponisten (Geburtsjahr)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Mozart', v: 1756 },
+  items: [
+    { t: 'Vivaldi', v: 1678 },
+    { t: 'Bach', v: 1685 },
+    { t: 'Beethoven', v: 1770 },
+    { t: 'Chopin', v: 1810 },
+    { t: 'Wagner', v: 1813 },
+    { t: 'Brahms', v: 1833 },
+    { t: 'Gershwin', v: 1898 }
+  ]
+},
+{
+  label: 'Olympische Sommerspiele (Jahr)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Barcelona', v: 1992 },
+  items: [
+    { t: 'Athen (Modern)', v: 1896 },
+    { t: 'Berlin', v: 1936 },
+    { t: 'München', v: 1972 },
+    { t: 'Sidney', v: 2000 },
+    { t: 'Peking', v: 2008 },
+    { t: 'Rio de Janeiro', v: 2016 },
+    { t: 'Tokio', v: 2021 }
+  ]
+},
+{
+  label: 'Fast-Food Ketten (Gründung)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'McDonalds', v: 1940 },
+  items: [
+    { t: 'Dunkin Donuts', v: 1950 },
+    { t: 'Burger King', v: 1954 },
+    { t: 'KFC', v: 1952 },
+    { t: 'Pizza Hut', v: 1958 },
+    { t: 'Subway', v: 1965 },
+    { t: 'Starbucks', v: 1971 },
+    { t: 'Chipotle', v: 1993 }
+  ]
+},
+{
+  label: 'Supermarkt-Preise (ca. Gewicht g)',
+  dir: ['Leichter', 'Schwerer'],
+  anchor: { t: 'Butter', v: 250 },
+  items: [
+    { t: 'Backpulver Päckchen', v: 16 },
+    { t: 'Tafel Schokolade', v: 100 },
+    { t: 'Packung Spaghetti', v: 500 },
+    { t: 'Packung Mehl', v: 1000 },
+    { t: 'Sack Kartoffeln (klein)', v: 2500 },
+    { t: 'Kasten Bier', v: 17000 }
+  ]
+},
+{
+  label: 'Fußball-WM (Jahr)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Deutschland (Sommermärchen)', v: 2006 },
+  items: [
+    { t: 'Uruguay (Erste)', v: 1930 },
+    { t: 'Bern (Deutschland Sieg)', v: 1954 },
+    { t: 'Mexiko', v: 1970 },
+    { t: 'Italien', v: 1990 },
+    { t: 'Frankreich', v: 1998 },
+    { t: 'Brasilien (7:1)', v: 2014 },
+    { t: 'Katar', v: 2022 }
+  ]
+},
+{
+  label: 'Bibel-Ereignisse (Chronologisch)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Zehn Gebote (Moses)', v: 2 },
+  items: [
+    { t: 'Schöpfung', v: 0 },
+    { t: 'Arche Noah', v: 1 },
+    { t: 'David gegen Goliath', v: 3 },
+    { t: 'Geburt Jesu', v: 4 },
+    { t: 'Bergpredigt', v: 5 },
+    { t: 'Auferstehung', v: 6 }
+  ]
+},
+{
+  label: 'Programmiersprachen (Jahr)',
+  dir: ['Früher entwickelt', 'Später entwickelt'],
+  anchor: { t: 'C++', v: 1985 },
+  items: [
+    { t: 'Fortran', v: 1957 },
+    { t: 'C', v: 1972 },
+    { t: 'Python', v: 1991 },
+    { t: 'Java', v: 1995 },
+    { t: 'JavaScript', v: 1995 },
+    { t: 'Rust', v: 2010 },
+    { t: 'Swift', v: 2014 }
+  ]
+},
+{
+  label: 'Deutsche Kanzler (Amtsantritt)',
+  dir: ['Früher im Amt', 'Später im Amt'],
+  anchor: { t: 'Helmut Kohl', v: 1982 },
+  items: [
+    { t: 'Konrad Adenauer', v: 1949 },
+    { t: 'Willy Brandt', v: 1969 },
+    { t: 'Helmut Schmidt', v: 1974 },
+    { t: 'Gerhard Schröder', v: 1998 },
+    { t: 'Angela Merkel', v: 2005 },
+    { t: 'Olaf Scholz', v: 2021 }
+  ]
+},
+{
+  label: 'James Bond Darsteller (Erster Film)',
+  dir: ['Früherer Bond', 'Späterer Bond'],
+  anchor: { t: 'Roger Moore', v: 1973 },
+  items: [
+    { t: 'Sean Connery', v: 1962 },
+    { t: 'George Lazenby', v: 1969 },
+    { t: 'Timothy Dalton', v: 1987 },
+    { t: 'Pierce Brosnan', v: 1995 },
+    { t: 'Daniel Craig', v: 2006 }
+  ]
+},
+{
+  label: 'Dinosaurier (Zeitliches Auftreten)',
+  dir: ['Früher (Trias)', 'Später (Kreide)'],
+  anchor: { t: 'Stegosaurus', v: 150 }, // in Mio. Jahren vor heute
+  items: [
+    { t: 'Herrerasaurus', v: 230 },
+    { t: 'Brachiosaurus', v: 153 },
+    { t: 'Archaeopteryx', v: 145 },
+    { t: 'Iguanodon', v: 125 },
+    { t: 'Spinosaurus', v: 100 },
+    { t: 'Triceratops', v: 68 },
+    { t: 'Tyrannosaurus Rex', v: 66 }
+  ]
+},
+{
+  label: 'Bands (Gründungsjahr)',
+  dir: ['Früher gegründet', 'Später gegründet'],
+  anchor: { t: 'Queen', v: 1970 },
+  items: [
+    { t: 'The Beatles', v: 1960 },
+    { t: 'The Rolling Stones', v: 1962 },
+    { t: 'ABBA', v: 1972 },
+    { t: 'Metallica', v: 1981 },
+    { t: 'Nirvana', v: 1987 },
+    { t: 'Linkin Park', v: 1996 },
+    { t: 'Coldplay', v: 1996 }
+  ]
+},
+{
+  label: 'Währungen (Einführung)',
+  dir: ['Älter', 'Neuer'],
+  anchor: { t: 'Euro (Bargeld)', v: 2002 },
+  items: [
+    { t: 'Pfund Sterling', v: 1158 },
+    { t: 'US-Dollar', v: 1792 },
+    { t: 'Schweizer Franken', v: 1850 },
+    { t: 'Deutsche Mark', v: 1948 },
+    { t: 'Bitcoin', v: 2009 }
+  ]
+},
+{
+  label: 'Harry Potter Charaktere (Alter im 1. Teil)',
+  dir: ['Jünger', 'Älter'],
+  anchor: { t: 'Hermine Granger', v: 12 },
+  items: [
+    { t: 'Harry Potter', v: 11 },
+    { t: 'Fred & George Weasley', v: 13 },
+    { t: 'Severus Snape', v: 31 },
+    { t: 'Rubeus Hagrid', v: 62 },
+    { t: 'Albus Dumbledore', v: 115 },
+    { t: 'Fast Kopfloser Nick', v: 510 }
+  ]
+},
+{
+  label: 'Pokémon Generationen (Release DE)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Rubin / Saphir', v: 2003 },
+  items: [
+    { t: 'Rot / Blau', v: 1999 },
+    { t: 'Gold / Silber', v: 2001 },
+    { t: 'Diamant / Perl', v: 2007 },
+    { t: 'Schwarz / Weiß', v: 2011 },
+    { t: 'X / Y', v: 2013 },
+    { t: 'Sonne / Mond', v: 2016 },
+    { t: 'Karmesin / Purpur', v: 2022 }
+  ]
+},
+{
+  label: 'Weltwunder (Baujahr/Fertigstellung)',
+  dir: ['Älter', 'Neuer'],
+  anchor: { t: 'Kolosseum', v: 80 },
+  items: [
+    { t: 'Cheops-Pyramide', v: -2560 },
+    { t: 'Chichén Itzá', v: 600 },
+    { t: 'Machu Picchu', v: 1450 },
+    { t: 'Taj Mahal', v: 1648 },
+    { t: 'Eiffelturm', v: 1889 },
+    { t: 'Christusstatue (Rio)', v: 1931 },
+    { t: 'Burj Khalifa', v: 2010 }
+  ]
+},
+{
+  label: 'Meere (Tiefe max. m)',
+  dir: ['Flacher', 'Tiefer'],
+  anchor: { t: 'Mittelmeer', v: 5267 },
+  items: [
+    { t: 'Ostsee', v: 459 },
+    { t: 'Nordsee', v: 725 },
+    { t: 'Schwarzes Meer', v: 2212 },
+    { t: 'Arktischer Ozean', v: 5608 },
+    { t: 'Indischer Ozean', v: 7290 },
+    { t: 'Atlantischer Ozean', v: 8376 },
+    { t: 'Pazifischer Ozean', v: 11034 }
+  ]
+},
+{
+  label: 'Flugzeuge (Erstflug)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Boeing 747 (Jumbo Jet)', v: 1969 },
+  items: [
+    { t: 'Wright Flyer', v: 1903 },
+    { t: 'Spirit of St. Louis', v: 1927 },
+    { t: 'Messerschmitt Me 262', v: 1942 },
+    { t: 'Concorde', v: 1969 },
+    { t: 'Airbus A380', v: 2005 },
+    { t: 'SpaceX Starship', v: 2023 }
+  ]
+},
+{
+  label: 'Oscar Gewinner Bester Film (Jahr)',
+  dir: ['Früher gewonnen', 'Später gewonnen'],
+  anchor: { t: 'Titanic', v: 1998 },
+  items: [
+    { t: 'Vom Winde verweht', v: 1940 },
+    { t: 'Der Pate', v: 1973 },
+    { t: 'Forrest Gump', v: 1995 },
+    { t: 'Der Herr der Ringe 3', v: 2004 },
+    { t: 'Parasite', v: 2020 },
+    { t: 'Oppenheimer', v: 2024 }
+  ]
+},
+{
+  label: 'Brettspiele (Erscheinungsjahr)',
+  dir: ['Älter', 'Neuer'],
+  anchor: { t: 'Monopoly', v: 1935 },
+  items: [
+    { t: 'Senet', v: -3500 },
+    { t: 'Schach', v: 600 },
+    { t: 'Mensch ärgere dich nicht', v: 1910 },
+    { t: 'Scrabble', v: 1948 },
+    { t: 'Risiko', v: 1957 },
+    { t: 'Siedler von Catan', v: 1995 },
+    { t: 'Carcassonne', v: 2000 }
+  ]
+},
+{
+  label: 'Städte (Einwohnerzahl DE)',
+  dir: ['Kleiner', 'Größer'],
+  anchor: { t: 'Köln', v: 1080000 },
+  items: [
+    { t: 'Gießen', v: 90000 },
+    { t: 'Kiel', v: 246000 },
+    { t: 'Bremen', v: 563000 },
+    { t: 'Frankfurt am Main', v: 764000 },
+    { t: 'München', v: 1488000 },
+    { t: 'Hamburg', v: 1850000 },
+    { t: 'Berlin', v: 3670000 }
+  ]
+},
+{
+  label: 'Süßigkeiten (Markteinführung)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Haribo Goldbären', v: 1922 },
+  items: [
+    { t: 'Milka Schokolade', v: 1901 },
+    { t: 'Mars Riegel', v: 1932 },
+    { t: 'Smarties', v: 1937 },
+    { t: 'Nutella', v: 1964 },
+    { t: 'Kinder Überraschung', v: 1974 },
+    { t: 'Twix (Raider)', v: 1967 }
+  ]
+},
+{
+  label: 'Berühmte Brücken (Länge m)',
+  dir: ['Kürzer', 'Länger'],
+  anchor: { t: 'Golden Gate Bridge', v: 2737 },
+  items: [
+    { t: 'Rialtobrücke', v: 48 },
+    { t: 'Tower Bridge', v: 244 },
+    { t: 'Brooklyn Bridge', v: 1825 },
+    { t: 'Öresundbrücke', v: 7845 },
+    { t: 'Danyang-Kunshan (China)', v: 164800 }
+  ]
+},
+{
+  label: 'Planeten (Anzahl Monde)',
+  dir: ['Weniger', 'Mehr'],
+  anchor: { t: 'Mars', v: 2 },
+  items: [
+    { t: 'Merkur', v: 0 },
+    { t: 'Erde', v: 1 },
+    { t: 'Neptun', v: 14 },
+    { t: 'Uranus', v: 27 },
+    { t: 'Jupiter', v: 95 },
+    { t: 'Saturn', v: 146 }
+  ]
+},
+{
+  label: 'Edelsteine (Härte nach Mohs)',
+  dir: ['Weicher', 'Härter'],
+  anchor: { t: 'Quarz', v: 7 },
+  items: [
+    { t: 'Talk', v: 1 },
+    { t: 'Gips', v: 2 },
+    { t: 'Calcit', v: 3 },
+    { t: 'Apatit', v: 5 },
+    { t: 'Topas', v: 8 },
+    { t: 'Saphir', v: 9 },
+    { t: 'Diamant', v: 10 }
+  ]
+},
+{
+  label: 'Explosionskraft (TNT Äquivalent)',
+  dir: ['Schwächer', 'Stärker'],
+  anchor: { t: 'Hiroshima Bombe', v: 15000 }, // in Tonnen TNT
+  items: [
+    { t: 'Handgranate', v: 0.0001 },
+    { t: 'MOAB (stärkste konventionelle)', v: 11 },
+    { t: 'Nagasaki Bombe', v: 21000 },
+    { t: 'Tsar Bombe (größte H-Bombe)', v: 50000000 },
+    { t: 'Chicxulub Asteroid (Dino-Killer)', v: 100000000000 }
+  ]
+},
+{
+  label: 'Speichermedien (Kapazität ca.)',
+  dir: ['Weniger Platz', 'Mehr Platz'],
+  anchor: { t: 'CD-ROM', v: 700 }, // in MB
+  items: [
+    { t: 'Lochkarte', v: 0.0001 },
+    { t: 'Disketten (3,5 Zoll)', v: 1.44 },
+    { t: 'DVD', v: 4700 },
+    { t: 'Blu-ray', v: 25000 },
+    { t: 'Standard SD-Karte', v: 128000 },
+    { t: 'Moderne Festplatte', v: 8000000 }
+  ]
+},
+{
+  label: 'Bier-Alkoholgehalt (Vol.-%)',
+  dir: ['Weniger Alkohol', 'Mehr Alkohol'],
+  anchor: { t: 'Pils', v: 4.8 },
+  items: [
+    { t: 'Alkoholfreies Bier', v: 0.5 },
+    { t: 'Leichtbier', v: 2.5 },
+    { t: 'Helles', v: 5.1 },
+    { t: 'Weizenbier', v: 5.4 },
+    { t: 'Bockbier', v: 7.0 },
+    { t: 'Doppelbock', v: 8.5 }
+  ]
+},
+{
+  label: 'US-Präsidenten (Amtsantritt)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'J.F. Kennedy', v: 1961 },
+  items: [
+    { t: 'George Washington', v: 1789 },
+    { t: 'Abraham Lincoln', v: 1861 },
+    { t: 'Franklin D. Roosevelt', v: 1933 },
+    { t: 'Ronald Reagan', v: 1981 },
+    { t: 'Barack Obama', v: 2009 },
+    { t: 'Donald Trump', v: 2017 },
+    { t: 'Joe Biden', v: 2021 }
+  ]
+},
+{
+  label: 'Autos (PS-Leistung)',
+  dir: ['Weniger PS', 'Mehr PS'],
+  anchor: { t: 'VW Golf VIII', v: 150 },
+  items: [
+    { t: 'VW Käfer', v: 34 },
+    { t: 'Trabant 601', v: 26 },
+    { t: 'Fiat 500 (alt)', v: 18 },
+    { t: 'Porsche 911 Carrera', v: 385 },
+    { t: 'Ferrari LaFerrari', v: 963 },
+    { t: 'Bugatti Chiron', v: 1500 }
+  ]
+},
+{
+  label: 'Internet-Browser (Release)',
+  dir: ['Älter', 'Neuer'],
+  anchor: { t: 'Firefox', v: 2002 },
+  items: [
+    { t: 'WorldWideWeb', v: 1990 },
+    { t: 'Mosaic', v: 1993 },
+    { t: 'Netscape Navigator', v: 1994 },
+    { t: 'Internet Explorer', v: 1995 },
+    { t: 'Opera', v: 1996 },
+    { t: 'Safari', v: 2003 },
+    { t: 'Google Chrome', v: 2008 }
+  ]
+},
+{
+  label: 'Berühmte Gemälde (Entstehungsjahr)',
+  dir: ['Früher gemalt', 'Später gemalt'],
+  anchor: { t: 'Mona Lisa (Da Vinci)', v: 1503 },
+  items: [
+    { t: 'Die Geburt der Venus (Botticelli)', v: 1485 },
+    { t: 'Die Nachtwache (Rembrandt)', v: 1642 },
+    { t: 'Der Wanderer über dem Nebelmeer (Friedrich)', v: 1818 },
+    { t: 'Sternennacht (Van Gogh)', v: 1889 },
+    { t: 'Der Schrei (Munch)', v: 1893 },
+    { t: 'Guernica (Picasso)', v: 1937 }
+  ]
+},
+{
+  label: 'James Bond Autos (PS-Leistung)',
+  dir: ['Schwächer', 'Stärker'],
+  anchor: { t: 'Aston Martin DB5', v: 282 },
+  items: [
+    { t: 'Citroën 2CV (Ente)', v: 29 },
+    { t: 'Sunbeam Alpine', v: 80 },
+    { t: 'Toyota 2000 GT', v: 150 },
+    { t: 'Lotus Esprit S1', v: 160 },
+    { t: 'BMW Z8', v: 400 },
+    { t: 'Aston Martin DBS V12', v: 517 }
+  ]
+},
+{
+  label: 'Hauptstädte nach Breitengrad',
+  dir: ['Südlicher', 'Nördlicher'],
+  anchor: { t: 'Berlin', v: 52 },
+  items: [
+    { t: 'Canberra', v: -35 },
+    { t: 'Kapstadt', v: -33 },
+    { t: 'Kairo', v: 30 },
+    { t: 'Rom', v: 41 },
+    { t: 'Paris', v: 48 },
+    { t: 'Oslo', v: 59 },
+    { t: 'Reykjavík', v: 64 }
+  ]
+},
+{
+  label: 'Speicherplatz (Hardware Release)',
+  dir: ['Älter', 'Neuer'],
+  anchor: { t: 'USB-Stick', v: 2000 },
+  items: [
+    { t: 'Magnetband', v: 1951 },
+    { t: 'Festplatte (IBM RAMAC)', v: 1956 },
+    { t: 'Kassette (Compact Cassette)', v: 1963 },
+    { t: 'CD (Compact Disc)', v: 1982 },
+    { t: 'DVD', v: 1995 },
+    { t: 'Blu-ray Disc', v: 2006 },
+    { t: 'NVMe SSD', v: 2011 }
+  ]
+},
+{
+  label: 'Länder nach höchstem Punkt (m)',
+  dir: ['Niedriger', 'Höher'],
+  anchor: { t: 'Australien (Mt. Kosciuszko)', v: 2228 },
+  items: [
+    { t: 'Malediven', v: 2 },
+    { t: 'Niederlande (Vaalserberg)', v: 322 },
+    { t: 'Großbritannien (Ben Nevis)', v: 1345 },
+    { t: 'Deutschland (Zugspitze)', v: 2962 },
+    { t: 'Japan (Fuji)', v: 3776 },
+    { t: 'USA (Denali)', v: 6190 },
+    { t: 'Nepal (Mt. Everest)', v: 8848 }
+  ]
+},
+{
+  label: 'Entdeckung von Krankheitserregern/Medizin',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Penicillin (Fleming)', v: 1928 },
+  items: [
+    { t: 'Pockenschutzimpfung (Jenner)', v: 1796 },
+    { t: 'Tuberkulose-Bakterium (Koch)', v: 1882 },
+    { t: 'Röntgenstrahlen (Röntgen)', v: 1895 },
+    { t: 'Blutgruppen (Landsteiner)', v: 1900 },
+    { t: 'Insulin', v: 1921 },
+    { t: 'DNA-Struktur (Watson/Crick)', v: 1953 },
+    { t: 'HIV-Virus', v: 1983 }
+  ]
+},
+{
+  label: 'Berühmte Brücken (Baujahr)',
+  dir: ['Älter', 'Neuer'],
+  anchor: { t: 'Golden Gate Bridge', v: 1937 },
+  items: [
+    { t: 'Ponte Vecchio', v: 1345 },
+    { t: 'Rialtobrücke', v: 1591 },
+    { t: 'Brooklyn Bridge', v: 1883 },
+    { t: 'Tower Bridge', v: 1894 },
+    { t: 'Sydney Harbour Bridge', v: 1932 },
+    { t: 'Öresundbrücke', v: 2000 }
+  ]
+},
+{
+  label: 'Weltall-Missionen (Jahr)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Apollo 11 (Mondlandung)', v: 1969 },
+  items: [
+    { t: 'Sputnik 1', v: 1957 },
+    { t: 'Wostok 1 (Gagarin)', v: 1961 },
+    { t: 'Voyager 1 Start', v: 1977 },
+    { t: 'Hubble Teleskop Start', v: 1990 },
+    { t: 'Mars Pathfinder', v: 1997 },
+    { t: 'ISS (Erstes Modul)', v: 1998 },
+    { t: 'James Webb Teleskop Start', v: 2021 }
+  ]
+},
+{
+  label: 'Film-Monster nach Größe (m)',
+  dir: ['Kleiner', 'Größer'],
+  anchor: { t: 'King Kong (1933)', v: 7 },
+  items: [
+    { t: 'Chucky', v: 0.7 },
+    { t: 'Gremlin', v: 0.9 },
+    { t: 'Alien (Xenomorph)', v: 2.1 },
+    { t: 'T-Rex (Jurassic Park)', v: 6 },
+    { t: 'Megalo-Hai (The Meg)', v: 23 },
+    { t: 'Godzilla (2014)', v: 108 }
+  ]
+},
+{
+  label: 'Literarische Epochen (Beginn ca.)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Barock', v: 1600 },
+  items: [
+    { t: 'Mittelalter', v: 750 },
+    { t: 'Aufklärung', v: 1720 },
+    { t: 'Sturm und Drang', v: 1767 },
+    { t: 'Klassik', v: 1786 },
+    { t: 'Romantik', v: 1795 },
+    { t: 'Realismus', v: 1848 },
+    { t: 'Moderne', v: 1890 }
+  ]
+},
+{
+  label: 'Stadien nach Kapazität',
+  dir: ['Kleiner', 'Größer'],
+  anchor: { t: 'Allianz Arena', v: 75000 },
+  items: [
+    { t: 'Alte Försterei', v: 22000 },
+    { t: 'Weserstadion', v: 42100 },
+    { t: 'Signal Iduna Park', v: 81365 },
+    { t: 'Wembley Stadium', v: 90000 },
+    { t: 'Camp Nou', v: 99354 },
+    { t: 'Maracanã (Rekord)', v: 199854 }
+  ]
+},
+{
+  label: 'Wunder der Natur (Fläche/Größe)',
+  dir: ['Kleiner', 'Größer'],
+  anchor: { t: 'Bodensee', v: 536 },
+  items: [
+    { t: 'Großer Roter Fleck (Jupiter)', v: 16000 },
+    { t: 'Totes Meer', v: 605 },
+    { t: 'Baikalsee', v: 31722 },
+    { t: 'Great Barrier Reef', v: 344400 },
+    { t: 'Sahara Wüste', v: 9200000 },
+    { t: 'Pazifik', v: 165200000 }
+  ]
+},
+{
+  label: 'Alkoholgehalt Getränke (Vol.-%)',
+  dir: ['Schwächer', 'Stärker'],
+  anchor: { t: 'Wein', v: 12 },
+  items: [
+    { t: 'Kefir', v: 0.5 },
+    { t: 'Bier', v: 5 },
+    { t: 'Likör', v: 20 },
+    { t: 'Gin', v: 40 },
+    { t: 'Whisky', v: 43 },
+    { t: 'Absinth', v: 70 },
+    { t: 'Stroh 80', v: 80 }
+  ]
+},
+{
+  label: 'Berühmte Schiffe (Länge m)',
+  dir: ['Kürzer', 'Länger'],
+  anchor: { t: 'Titanic', v: 269 },
+  items: [
+    { t: 'Santa Maria (Kolumbus)', v: 25 },
+    { t: 'HMS Victory', v: 69 },
+    { t: 'Gorch Fock', v: 89 },
+    { t: 'Bismarck', v: 251 },
+    { t: 'USS Nimitz (Flugzeugträger)', v: 332 },
+    { t: 'Wonder of the Seas (Kreuzfahrt)', v: 362 }
+  ]
+},
+{
+  label: 'Eissorten (Beliebtheit DE Rang)',
+  dir: ['Weniger beliebt', 'Beliebter'],
+  anchor: { t: 'Erdbeere', v: 3 },
+  items: [
+    { t: 'Waldmeister', v: 10 },
+    { t: 'Stracciatella', v: 5 },
+    { t: 'Haselnuss', v: 4 },
+    { t: 'Schokolade', v: 2 },
+    { t: 'Vanille', v: 1 }
+  ]
+},
+{
+  label: 'US Bundesstaaten (Beitritt Union)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Kalifornien', v: 1850 },
+  items: [
+    { t: 'Delaware (Erster)', v: 1787 },
+    { t: 'New York', v: 1788 },
+    { t: 'Texas', v: 1845 },
+    { t: 'Alaska', v: 1959 },
+    { t: 'Hawaii (Letzter)', v: 1959 }
+  ]
+},
+{
+  label: 'Chemische Elemente (Entdeckung)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Sauerstoff', v: 1774 },
+  items: [
+    { t: 'Gold', v: -3000 },
+    { t: 'Phosphor', v: 1669 },
+    { t: 'Aluminium', v: 1825 },
+    { t: 'Helium', v: 1868 },
+    { t: 'Radium', v: 1898 },
+    { t: 'Plutonium', v: 1940 }
+  ]
+},
+{
+  label: 'Druckerzeugnisse (Erfindung/Release)',
+  dir: ['Älter', 'Neuer'],
+  anchor: { t: 'Gutenberg Bibel', v: 1452 },
+  items: [
+    { t: 'Papyrusrollen', v: -3000 },
+    { t: 'Erste Zeitung (Relation)', v: 1605 },
+    { t: 'Erstes Taschenbuch (Albatross)', v: 1932 },
+    { t: 'E-Book (Project Gutenberg)', v: 1971 },
+    { t: 'Kindle (Amazon)', v: 2007 }
+  ]
+},
+{
+  label: 'Hauptstädte nach Einwohnerzahl',
+  dir: ['Weniger', 'Mehr'],
+  anchor: { t: 'Wien', v: 1900000 },
+  items: [
+    { t: 'Bern', v: 133000 },
+    { t: 'Luxemburg Stadt', v: 128000 },
+    { t: 'Berlin', v: 3700000 },
+    { t: 'London', v: 8900000 },
+    { t: 'Tokio', v: 13900000 }
+  ]
+},
+{
+  label: 'Länder nach BIP (Bruttoinlandsprodukt)',
+  dir: ['Niedriger', 'Höher'],
+  anchor: { t: 'Deutschland', v: 4200 }, // in Mrd USD
+  items: [
+    { t: 'Island', v: 28 },
+    { t: 'Schweiz', v: 800 },
+    { t: 'Frankreich', v: 2700 },
+    { t: 'Japan', v: 4900 },
+    { t: 'China', v: 17700 },
+    { t: 'USA', v: 23000 }
+  ]
+},
+{
+  label: 'Architekturstile (Beginn ca.)',
+  dir: ['Älter', 'Neuer'],
+  anchor: { t: 'Gotik', v: 1140 },
+  items: [
+    { t: 'Griechische Antike', v: -800 },
+    { t: 'Romanik', v: 950 },
+    { t: 'Renaissance', v: 1420 },
+    { t: 'Barock', v: 1575 },
+    { t: 'Klassizismus', v: 1770 },
+    { t: 'Jugendstil', v: 1890 },
+    { t: 'Bauhaus', v: 1919 }
+  ]
+},
+{
+  label: 'Menschliche Organe nach Gewicht (g)',
+  dir: ['Leichter', 'Schwerer'],
+  anchor: { t: 'Herz', v: 300 },
+  items: [
+    { t: 'Auge', v: 7.5 },
+    { t: 'Niere', v: 150 },
+    { t: 'Gehirn', v: 1400 },
+    { t: 'Lunge', v: 1100 },
+    { t: 'Leber', v: 1500 },
+    { t: 'Haut (Gesamt)', v: 10000 }
+  ]
+},
+{
+  label: 'Schulfächer (typische Wochenstunden)',
+  dir: ['Weniger', 'Mehr'],
+  anchor: { t: 'Biologie', v: 2 },
+  items: [
+    { t: 'Ethik/Religion', v: 2 },
+    { t: 'Musik', v: 1 },
+    { t: 'Sport', v: 3 },
+    { t: 'Mathe', v: 4 },
+    { t: 'Deutsch', v: 5 }
+  ]
+},
+{
+  label: 'Sonnensystem (Fluchtgeschwindigkeit km/s)',
+  dir: ['Niedriger', 'Höher'],
+  anchor: { t: 'Erde', v: 11.2 },
+  items: [
+    { t: 'Mond', v: 2.4 },
+    { t: 'Mars', v: 5.0 },
+    { t: 'Venus', v: 10.4 },
+    { t: 'Neptun', v: 23.5 },
+    { t: 'Jupiter', v: 59.5 },
+    { t: 'Sonne', v: 617.5 }
+  ]
+},
+{
+  label: 'James Bond Gadgets (Film Erscheinung)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Jetpack (Thunderball)', v: 1965 },
+  items: [
+    { t: 'Schleudersitz (Goldfinger)', v: 1964 },
+    { t: 'Magnetauslöser Uhr (Live and let Die)', v: 1973 },
+    { t: 'Lotus U-Boot (The Spy Who Loved Me)', v: 1977 },
+    { t: 'Laser-Uhr (GoldenEye)', v: 1995 },
+    { t: 'Unsichtbares Auto (Die Another Day)', v: 2002 }
+  ]
+},
+{
+  label: 'Deutsche Fernsehshows (Erstausstrahlung)',
+  dir: ['Älter', 'Neuer'],
+  anchor: { t: 'Wetten, dass..?', v: 1981 },
+  items: [
+    { t: 'Tagesschau', v: 1952 },
+    { t: 'Aktuelle Sportstudio', v: 1963 },
+    { t: 'Tatort', v: 1970 },
+    { t: 'Lindenstraße', v: 1985 },
+    { t: 'Wer wird Millionär?', v: 1999 },
+    { t: 'Heute Show', v: 2009 }
+  ]
+},
+{
+  label: 'Automarken (Gründungsjahr)',
+  dir: ['Älter', 'Neuer'],
+  anchor: { t: 'Volkswagen', v: 1937 },
+  items: [
+    { t: 'Mercedes-Benz', v: 1926 },
+    { t: 'Ford', v: 1903 },
+    { t: 'Ferrari', v: 1947 },
+    { t: 'Porsche', v: 1931 },
+    { t: 'Toyota', v: 1937 },
+    { t: 'Tesla', v: 2003 }
+  ]
+},
+{
+  label: 'Disney Villains (Film Release)',
+  dir: ['Älter', 'Neuer'],
+  anchor: { t: 'Scar (König der Löwen)', v: 1994 },
+  items: [
+    { t: 'Böse Königin (Schneewittchen)', v: 1937 },
+    { t: 'Maleficent (Dornröschen)', v: 1959 },
+    { t: 'Dschafar (Aladdin)', v: 1992 },
+    { t: 'Hades (Hercules)', v: 1997 },
+    { t: 'Dr. Facilier (Küss den Frosch)', v: 2009 }
+  ]
+},
+{
+  label: 'Sprachen nach Muttersprachlern',
+  dir: ['Weniger', 'Mehr'],
+  anchor: { t: 'Deutsch', v: 76 }, // in Millionen
+  items: [
+    { t: 'Italienisch', v: 65 },
+    { t: 'Französisch', v: 80 },
+    { t: 'Russisch', v: 150 },
+    { t: 'Englisch', v: 370 },
+    { t: 'Spanisch', v: 480 },
+    { t: 'Mandarin-Chinesisch', v: 920 }
+  ]
+},
+{
+  label: 'Hunderassen (Gewicht kg)',
+  dir: ['Leichter', 'Schwerer'],
+  anchor: { t: 'Border Collie', v: 20 },
+  items: [
+    { t: 'Zwergpudel', v: 4 },
+    { t: 'Beagle', v: 10 },
+    { t: 'Dalmatiner', v: 25 },
+    { t: 'Berner Sennenhund', v: 45 },
+    { t: 'Bernhardiner', v: 70 }
+  ]
+},
+{
+  label: 'Klassische Musik (Dauer ca. Min)',
+  dir: ['Kürzer', 'Länger'],
+  anchor: { t: 'Beethoven 5. Sinfonie', v: 35 },
+  items: [
+    { t: 'Hummelflug', v: 1 },
+    { t: 'Für Elise', v: 3 },
+    { t: 'Mozart Jupiter Sinfonie', v: 30 },
+    { t: 'Vivaldi Vier Jahreszeiten', v: 42 },
+    { t: 'Mahler 3. Sinfonie', v: 95 }
+  ]
+},
+{
+  label: 'Planeten (Fallbeschleunigung m/s²)',
+  dir: ['Geringer', 'Stärker'],
+  anchor: { t: 'Erde', v: 9.81 },
+  items: [
+    { t: 'Mond', v: 1.62 },
+    { t: 'Mars', v: 3.71 },
+    { t: 'Uranus', v: 8.87 },
+    { t: 'Saturn', v: 10.44 },
+    { t: 'Neptun', v: 11.15 },
+    { t: 'Jupiter', v: 24.79 }
+  ]
+},
+{
+  label: 'Küchenkräuter (Wuchshöhe cm)',
+  dir: ['Kleiner', 'Größer'],
+  anchor: { t: 'Schnittlauch', v: 30 },
+  items: [
+    { t: 'Kresse', v: 10 },
+    { t: 'Thymian', v: 20 },
+    { t: 'Petersilie', v: 40 },
+    { t: 'Basilikum', v: 50 },
+    { t: 'Rosmarin', v: 100 },
+    { t: 'Liebstöckel', v: 200 }
+  ]
+},
+{
+  label: 'Schachfiguren (Wert in Bauern)',
+  dir: ['Weniger Wert', 'Mehr Wert'],
+  anchor: { t: 'Läufer', v: 3 },
+  items: [
+    { t: 'Bauer', v: 1 },
+    { t: 'Springer', v: 3 },
+    { t: 'Turm', v: 5 },
+    { t: 'Dame', v: 9 },
+    { t: 'König', v: 99 }
+  ]
+},
+{
+  label: 'Metalle (Dichte g/cm³)',
+  dir: ['Leichter', 'Dichter'],
+  anchor: { t: 'Eisen', v: 7.87 },
+  items: [
+    { t: 'Lithium', v: 0.53 },
+    { t: 'Aluminium', v: 2.70 },
+    { t: 'Silber', v: 10.49 },
+    { t: 'Blei', v: 11.34 },
+    { t: 'Gold', v: 19.30 },
+    { t: 'Platin', v: 21.45 }
+  ]
+},
+{
+  label: 'Weltbevölkerung (Milliarden)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: '5 Milliarden erreicht', v: 1987 },
+  items: [
+    { t: '1 Milliarde erreicht', v: 1804 },
+    { t: '2 Milliarden erreicht', v: 1927 },
+    { t: '3 Milliarden erreicht', v: 1960 },
+    { t: '4 Milliarden erreicht', v: 1974 },
+    { t: '6 Milliarden erreicht', v: 1999 },
+    { t: '8 Milliarden erreicht', v: 2022 }
+  ]
+},
+{
+  label: 'Internet-Meilensteine (Jahr)',
+  dir: ['Früher', 'Später'],
+  anchor: { t: 'Google Gründung', v: 1998 },
+  items: [
+    { t: 'ARPANET Start', v: 1969 },
+    { t: 'Erste E-Mail', v: 1971 },
+    { t: 'Domain Name System (DNS)', v: 1983 },
+    { t: 'World Wide Web (CERN)', v: 1989 },
+    { t: 'Amazon Gründung', v: 1994 },
+    { t: 'Wikipedia Gründung', v: 2001 }
+  ]
+},
+{
+  label: 'Insekten (Flügelschläge pro Sek.)',
+  dir: ['Langsamer', 'Schneller'],
+  anchor: { t: 'Honigbiene', v: 200 },
+  items: [
+    { t: 'Schwalbenschwanz', v: 10 },
+    { t: 'Stubenfliege', v: 150 },
+    { t: 'Hummel', v: 230 },
+    { t: 'Stechmücke', v: 600 },
+    { t: 'Gnitze', v: 1000 }
+  ]
+},
+{
+  label: 'Filmlänge Klassiker (Min)',
+  dir: ['Kürzer', 'Länger'],
+  anchor: { t: 'Der Pate', v: 175 },
+  items: [
+    { t: 'Casablanca', v: 102 },
+    { t: 'Psycho', v: 109 },
+    { t: 'Pulp Fiction', v: 154 },
+    { t: 'The Wolf of Wall Street', v: 180 },
+    { t: 'Vom Winde verweht', v: 238 }
+  ]
+},
+{
+  label: 'Papst-Amtszeiten (Dauer Jahre)',
+  dir: ['Kürzer', 'Länger'],
+  anchor: { t: 'Benedikt XVI.', v: 8 },
+  items: [
+    { t: 'Johannes Paul I.', v: 0.08 },
+    { t: 'Franziskus (bis 2024)', v: 11 },
+    { t: 'Johannes XXIII.', v: 5 },
+    { t: 'Johannes Paul II.', v: 26 },
+    { t: 'Pius XII.', v: 19 }
+  ]
+},
   ];
 
   // CSS-Animationen einmalig einbetten
