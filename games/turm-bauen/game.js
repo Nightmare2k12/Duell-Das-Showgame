@@ -33,9 +33,12 @@
   // Progressive difficulty based on round number
   function generateTower(round) {
     var min, max;
-    if (round <= 5)      { min = 4;  max = 7;  }
-    else if (round <= 9) { min = 8;  max = 11; }
-    else                 { min = 12; max = 16; }
+    if      (round <= 3)  { min = 5;  max = 7;  }
+    else if (round <= 6)  { min = 6;  max = 8;  }
+    else if (round <= 8)  { min = 7;  max = 9;  }
+    else if (round <= 10) { min = 8;  max = 11; }
+    else if (round <= 12) { min = 10; max = 12; }
+    else                  { min = 12; max = 14; }
     var height = randInt(min, max);
     var blocks = [];
     for (var i = 0; i < height; i++) blocks.push(COLOR_KEYS[randInt(0, 3)]);
@@ -746,7 +749,7 @@
           ? (overtime ? '#f0c030;background:#f0c030' : '#f55a3a;background:#f55a3a')
           : (overtime ? 'rgba(240,192,48,.15)' : 'rgba(245,90,58,.2)')) + '"></span>';
       }
-      var diff = this.mini <= 5 ? '★☆☆' : (this.mini <= 9 ? '★★☆' : '★★★');
+      var diff = this.mini <= 3 ? '★☆☆' : (this.mini <= 8 ? '★★☆' : '★★★');
       var overtime = this.p1Errors >= 3 && this.p2Errors >= 3;
       var label = 'RUNDE ' + this.mini + ' ' + diff + (overtime ? ' ⚡' : '');
       el.innerHTML = d1 +
