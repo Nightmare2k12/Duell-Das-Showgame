@@ -452,15 +452,15 @@
 
       this.ctx.network.on('pl_preview', function (msg) {
         if (!self.ctx.isHost || self.p2Locked) return;
+        // Nur intern speichern — Marker NICHT anzeigen, bis Ergebnis erscheint
         self.p2Guess = { lat: msg.lat, lng: msg.lng };
-        self._placeMarker('p2', msg.lat, msg.lng);
       });
 
       this.ctx.network.on('pl_lock', function (msg) {
         if (self.ctx.isHost && msg.player === 'p2') {
           self.p2Guess  = { lat: msg.lat, lng: msg.lng };
           self.p2Locked = true;
-          self._placeMarker('p2', msg.lat, msg.lng);
+          // Marker NICHT sofort anzeigen — erscheint erst beim Ergebnis
           self._updateLockBar();
           self._tryResolve();
         }
