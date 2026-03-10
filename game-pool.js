@@ -54,7 +54,7 @@ const GamePool = (() => {
 	'pfad-der-erleuchtung',
 	'sortieren',
 	'mathe-rennbahn',
-	'gleichgewicht-der-massen',
+	'preis_ist_heiss',
 	'karten-gedaechtnis',
     // Future games: 'wortketze', 'reaktion', ...
   ];
